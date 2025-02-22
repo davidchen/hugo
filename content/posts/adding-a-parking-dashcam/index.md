@@ -69,13 +69,15 @@ Most SPDT toggle switches are [break-before-make (BBM)](https://www.analog.com/e
 2. **Add Capacitors to Bridge the Power Gap.** Capacitors across the red wire and ground act as a temporary power source, keeping the dashcam alive while switching.  
    **Why didn't this work?** The sizing of these capacitors based on the dashcam's power draw of up to 1A at 12V means that I needed four cartoonishly large capacitors that took up far too much space.
 
-3. **Use a Diode to Automatically Bridge ACC Power.** This approach uses the existing ACC line and a Schottky diode to prevent backfeed: we feed ACC to the red line so that it'll only get ACC when the toggle is off but receive constant 12V when the toggle is on. The diode will prevent backfeed into the ACC fuse when the toggle is switched on.  
+3. **Use a Diode to Automatically Bridge ACC Power.** This approach uses the existing ACC line and a Schottky diode[^3] to prevent backfeed: we feed ACC to the red line so that it'll only get ACC when the toggle is off but receive constant 12V when the toggle is on. The diode will prevent backfeed into the ACC fuse when the toggle is switched on.  
    **Why didn't this work?** It worked. 😊
+
+[^3]: We went with an SS24 Schottky diode since it has a low forward voltage drop (~0.5V @ 2A) when compared to a conventional diode like the 1N400x series. It's also rated for up to 40V and 2A, which is more than sufficient for this use case.
 
 Now that we're bridging the power gap with ACC power, it turns out our SPDT toggle was overkill anyway. We don't actually need the second power source from ACC since we're connecting it directly to the existing output of the switch. We could've gotten away with just an SPST. Here's a rudimentary wiring diagram of what we have so far:
 
 ![Wiring Diagram Part 1](cx5-wiring-part-1.jpg)
-_Yes, I use Figma for wiring diagrams. No, I don't do autographs._
+_Yes, I use Figma for wiring diagrams. No, I didn't use schematic symbols here because I enjoy legibility._
 
 ### The "My Car Battery Is Not Swole Enough" Problem
 
