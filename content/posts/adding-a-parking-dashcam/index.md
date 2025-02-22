@@ -3,7 +3,6 @@ title: "Adding a Parking Dashcam to a 2nd-Gen Mazda CX-5"
 summary: "How I spent far too long trying to squeeze every last drop of functionality from my parking dashcam"
 date: 2025-01-27
 tags: ["DIY", "automotive"]
-draft: true
 ---
 
 ## Initial Installation
@@ -45,7 +44,7 @@ Normally, the parking mode configuration works well and would be the finish line
 - **False recordings**: Wind, small vibrations, or passing shadows can trigger unnecessary recordings.
 - **Unnecessary use**: If the vehicle is in a secure garage, parking mode is redundant.
 
-That last point is the one that resonates with me the most---my personal situation calls for the ability to toggle parking mode on and off easily since my vehicle stays in a garage approximately 80% of the time (_wildly non-verifiable estimate_). In order for this toggling to happen, we'd have to be able to switch between an ACC source and a constant source, both feeding into the hardwire kit's red wire (but ensuring power delivery is mutually exclusive).
+That last point is the one that resonates with me the most—my personal situation calls for the ability to toggle parking mode on and off easily since my vehicle stays in a garage approximately 80% of the time (_wildly non-verifiable estimate_). In order for this toggling to happen, we'd have to be able to switch between an ACC source and a constant source, both feeding into the hardwire kit's red wire (but ensuring power delivery is mutually exclusive).
 
 ### Oooh, Shiny
 
@@ -86,21 +85,24 @@ At this point in the project, I was pretty proud of myself. I'd gotten all the e
 
 After a long drive to have dinner with family for Chinese New Year, I parked the car in the garage and turned on parking mode to see how long it would actually record. I'd set it to timelapse mode, and at 1 FPS, my conservative estimates put it in the range of recording for a couple of hours to about 6 hours' worth of footage. This in theory should condense the recording into (at a minimum) a 4-minute video that I would be able to play back.
 
-Imagine my surprise when I came back the next day and there was only an 11-second clip, which equates to parking mode running for only 5.5 minutes. Actually, I wasn't surprised---mainly just disappointed. I had a sneaking suspicion that the factory-installed aging battery on my Mazda would not be up to the task of running a parking dashcam. Of course, I'd also already checked with a multimeter that it wasn't the hardwire kit that was faulty, since the battery was indeed at the cutoff point when the dashcam shut off.
+Imagine my surprise when I came back the next day and there was only an 11-second clip, which equates to parking mode running for only 5.5 minutes. Actually, I wasn't surprised—mainly just disappointed. I had a sneaking suspicion that the factory-installed aging battery on my Mazda would not be up to the task of running a parking dashcam. Of course, I'd also already checked with a multimeter that it wasn't the hardwire kit that was faulty, since the battery was indeed at the cutoff point when the dashcam shut off.
 
 This is the part where I should've stopped shelling out money for more electrical equipment and the like, but unfortunately, I didn't.
 
-To solve this issue, I purchased an external battery pack ([BlackVue B-112](https://www.amazon.com/dp/B01HFRH34Q?ref=ppx_yo2ov_dt_b_fed_asin_title)) specifically made for dashcams with parking modes so that it now becomes the sole source of power when the engine is off, instead of the vehicle's actual battery. I also decided to purchase a cheap voltage meter I could hook up to check how much voltage the dashcam was pulling at any given time, just to provide extra transparency about battery behavior. The wiring diagram now looks like this:
+To solve this issue, I purchased an external battery pack ([BlackVue B-112](https://www.amazon.com/dp/B01HFRH34Q?ref=ppx_yo2ov_dt_b_fed_asin_title)) specifically made for dashcams with parking modes so that it now becomes the sole source of power when the engine is off, instead of the vehicle's actual battery. I also decided to purchase a cheap voltmeter I could hook up to check how much voltage the dashcam was pulling at any given time, just to provide extra transparency about battery behavior. The wiring diagram now looks like this:
 
 ![Wiring Diagram Part 2](cx5-wiring-part-2.jpg)  
-_Notice how the constant fuse tap is completely gone, and we solely rely on the B-112 to be the source of 12V constant._
+_Notice how the constant fuse tap is completely gone, and we solely rely on the B-112 to be the source of 12V constant. The ACC charges the B-112, and the B-112 will provide its reserve power to the dashcam when the SPDT is toggled to parking mode._
 
 ### Prettifying It All
 
 Now all that's left to do is wire management and 3D printing a nice little container for the toggle switch and voltmeter. Here's how those came out:
 
 ![3D Printed Case](3d-printed-case.jpg)  
-_Switch downward to activate parking mode. Switch upward to return to non-parking mode. The direction was somewhat arbitrary; I chose downward for parking mode since there's less risk of an item dropping onto the toggle and accidentally shutting off power mode when it was meant to be on. The opposite is less of a concern (turning parking mode on accidentally)._
+_Switch downward to activate parking mode. Switch upward to return to non-parking mode. The direction was somewhat arbitrary; I chose downward for parking mode since there's less risk of an item dropping onto the toggle and accidentally shutting off parking mode when it was meant to be on. The opposite is less of a concern (turning parking mode on accidentally)._
+
+![3D Printed Case In Car](3d-printed-case-car.jpg)  
+_This is what it looks like in the vehicle, barring the prototype-red casing and loose wires._
 
 ![Complete Parking Mode](complete-parking-mode.jpg)  
 _todo add picture of the parking mode activated and maybe a description of how long it lasts now with the B112_
