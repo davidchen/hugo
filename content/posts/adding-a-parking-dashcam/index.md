@@ -7,13 +7,11 @@ tags: ["DIY", "automotive"]
 
 ## Initial Installation
 
-Earlier this month, I decided that I wanted a more sophisticated dashcam setup for my second-generation Mazda CX-5. Mostly, I wanted the parking mode feature, which is basically a cheaper version of Tesla's [Sentry Mode](https://www.notateslaapp.com/tesla-reference/1303/tesla-sentry-mode-what-it-is-how-to-use-it-and-battery-drain), to record any incidents that occur when the vehicle's engine is off, such as when parked on the street or in a parking garage. I opted for a [Rove R2-4K Dual](https://www.amazon.com/ROVE-R2-4K-DUAL-STARVIS-Included/dp/B0D6J5B98H)[^1], and the installation went pretty smoothly. I followed this video pretty closely for the initial installation:
+Earlier this month, I decided that I wanted a more sophisticated dashcam setup for my second-generation Mazda CX-5. Mostly, I wanted the parking mode feature, which is basically a cheaper version of Tesla's [Sentry Mode](https://www.notateslaapp.com/tesla-reference/1303/tesla-sentry-mode-what-it-is-how-to-use-it-and-battery-drain), to record any incidents that occur when the vehicle's engine is off, such as when parked on the street or in a parking garage. I opted for a [Rove R2-4K Dual](https://www.amazon.com/ROVE-R2-4K-DUAL-STARVIS-Included/dp/B0D6J5B98H)[^1], and the installation went smoothly. I followed [this video](https://www.youtube.com/watch?v=VZDuZvfIwlo) closely for the initial installation.
 
-{{< youtube VZDuZvfIwlo >}}
+[^1]: I won't speak to the quality of this dashcam just yet, since I haven't had the time to fully utilize all its features. I will mention, though, that there was a minor software annoyance that caused the rear dashcam to show up mirrored on the display. The playback of both cameras works well, and the Rove support team was helpful in sending me a replacement. It did not solve the issue, but it's good to know their customer support is at least responsive and helpful.
 
-[^1]: I won't speak to the quality of this dashcam just yet, since I haven't had the time to fully utilize all its features. I will mention, though, that there was a minor software annoyance that caused the rear dashcam to show up mirrored on the display. The playback of both cameras works well, and the Rove support team was pretty helpful in sending me a replacement. It did not solve the issue, but it's good to know their customer support is at least responsive and helpful.
-
-At this point, you're pretty much good to go with a working dual dashcam setup. However, since this dashcam had the parking mode feature I was looking for, I needed to go a step further and install a hardwire kit.
+At this point, you're pretty much good to go with a working dual dashcam setup, as long as you don't care about parking mode. However, since this dashcam had the parking mode feature I was looking for, I needed to go a few steps further and begin by installing a hardwire kit.
 
 ## Hardwire Kit
 
