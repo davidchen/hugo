@@ -1,4 +1,4 @@
-baseURL: https://example.org/
+baseURL: https://davidchen.github.io/hugo/
 languageCode: en-us
 title: David Chen's Site
 theme: ["PaperMod"]
