@@ -74,23 +74,29 @@ Most SPDT toggle switches are [break-before-make (BBM)](https://www.analog.com/e
 3. **Use a Diode to Automatically Bridge ACC Power.** This approach uses the existing ACC line and a Schottky diode to prevent backfeed: we feed ACC to the red line so that it'll only get ACC when the toggle is off but receive constant 12V when the toggle is on. The diode will prevent backfeed into the ACC fuse when the toggle is switched on.  
    **Why didn’t this work?** It worked.
 
-Now that we're bridging the power gap with ACC power, it turns out that our SPDT toggle was overkill anyway, and we don't need the 2nd power source from ACC since we're connecting that directly to the existing output of the switch. We could've actually gotten away with an SPST. Here's a rudimentary wiring diagram of what we have so far:
+Now that we're bridging the power gap with ACC power, it turns out our SPDT toggle was overkill anyway. We don’t actually need the second power source from ACC since we're connecting it directly to the existing output of the switch. We could've gotten away with just an SPST. Here's a rudimentary wiring diagram of what we have so far:
 
 ![Wiring Diagram Part 1](cx5-wiring-part-1.jpg)
 _Yes, I use Figma for wiring diagrams. No, I don't do autographs._
 
 ### The "My Car Battery Is Not Swole Enough" Problem
 
-At this point of the project, I was pretty proud of myself. I'd gotten all the elctronics down, the dashcam was working flawlessly, and i was able to effortlessly toggle between the non-parking and parking modes without the camera rebooting. now, i just had to put it to the test. after a long drive to have dinner with family for chinese new year's, i parked the car into the garage and turned on parking mode to see how long it would actually record. i'd set it to the timelapse mode, and at 1 FPS, my conservative estimates put it in the range of recording for a couple hours to about 6 hours worth of footage condensed into (at a minimum) a 4 minute video that i would be able to play back. imagine my surprise when i came back the next day and there was only an 11 second clip, which equates to parking mode running for only 5.5 minutes. actually, i wasn't suprised---mainly just disappointed. i had a sneaking suspicion that the factory-installed aging battery on my Mazda would not be up to the task for a parking dashcam. of course, i'd also already checked with a multimeter that it wasn't the hardwire kit that was faulty since indeed the battery was at the cutoff point when the dashcam shuts off. this is the part where i should've stopped shelling out money for more electrical equipment and the like, but it's unfortunately not.
+At this point in the project, I was pretty proud of myself. I'd gotten all the electronics down, the dashcam was working flawlessly, and I was able to effortlessly toggle between the non-parking and parking modes without the camera rebooting. Now, I just had to put it to the test.
 
-To solve this issue, I purchased an external battery pack ([BlackVue B-112](https://www.amazon.com/dp/B01HFRH34Q?ref=ppx_yo2ov_dt_b_fed_asin_title)) specifically made for dashcams with parking modes such that it now becomes the sole source of power when the engine is off, instead of the actual battery of the vehicle. I also decided to purchase a cheapo voltage meter I could hook up to check on how much voltage the dashcam was pulling at any given time, just to provide extra transparency about battery behavior. The wiring diagram now looks like this:
+After a long drive to have dinner with family for Chinese New Year's, I parked the car in the garage and turned on parking mode to see how long it would actually record. I'd set it to timelapse mode, and at 1 FPS, my conservative estimates put it in the range of recording for a couple of hours to about 6 hours' worth of footage, condensed into (at a minimum) a 4-minute video that I would be able to play back.
 
-![Wiring Diagram Part 2](cx5-wiring-part-2.jpg)
-_Notice how the constant fuse tap is completely gone and we solely rely on the B-112 to be the source of 12V constant._
+Imagine my surprise when I came back the next day and there was only an 11-second clip, which equates to parking mode running for only 5.5 minutes. Actually, I wasn't surprised—mainly just disappointed. I had a sneaking suspicion that the factory-installed aging battery on my Mazda would not be up to the task of running a parking dashcam. Of course, I'd also already checked with a multimeter that it wasn't the hardwire kit that was faulty, since the battery was indeed at the cutoff point when the dashcam shut off.
 
-### Prettifying it all
+This is the part where I should've stopped shelling out money for more electrical equipment and the like, but unfortunately, I didn’t.
 
-Now all that's left to do is wire management and to 3D print a nice little container for the toggle switch and voltmeter. Here's how those came out:
+To solve this issue, I purchased an external battery pack ([BlackVue B-112](https://www.amazon.com/dp/B01HFRH34Q?ref=ppx_yo2ov_dt_b_fed_asin_title)) specifically made for dashcams with parking modes so that it now becomes the sole source of power when the engine is off, instead of the vehicle's actual battery. I also decided to purchase a cheap voltage meter I could hook up to check how much voltage the dashcam was pulling at any given time, just to provide extra transparency about battery behavior. The wiring diagram now looks like this:
 
-![3D Printed Case](3d-printed-case.jpg)
-_Switch downward to activate parking mode. Switch upward to return to non-parking mode. The direction was somewhat arbritarily; I chose downward as the parking mode since there's less risk of an item dropping onto the toggle and accidentally shutting off power mode when it was meant to be on. The opposite is less of a concern (turning parking mode on accidentally)._
+![Wiring Diagram Part 2](cx5-wiring-part-2.jpg)  
+_Notice how the constant fuse tap is completely gone, and we solely rely on the B-112 to be the source of 12V constant._
+
+### Prettifying It All
+
+Now all that's left to do is wire management and 3D printing a nice little container for the toggle switch and voltmeter. Here's how those came out:
+
+![3D Printed Case](3d-printed-case.jpg)  
+_Switch downward to activate parking mode. Switch upward to return to non-parking mode. The direction was somewhat arbitrary; I chose downward for parking mode since there's less risk of an item dropping onto the toggle and accidentally shutting off power mode when it was meant to be on. The opposite is less of a concern (turning parking mode on accidentally)._
