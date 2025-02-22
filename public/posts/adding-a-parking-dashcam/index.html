@@ -145,7 +145,7 @@
 </ol>
 <p>Since we&rsquo;ve already covered that only the red wire will need to be switched between two sources, we&rsquo;ll go with the SPDT<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <h3 id="the-break-before-make-problem">The &ldquo;Break-Before-Make&rdquo; Problem<a hidden class="anchor" aria-hidden="true" href="#the-break-before-make-problem">#</a></h3>
-<p>Most SPDT toggle switches are <a href="https://www.analog.com/en/resources/glossary/break-before-make.html">break-before-make (BBM)</a> devices, which causes a temporary power gap. During testing, this &ldquo;feature&rdquo; reared its ugly head—the dashcam would momentarily lose power, causing it to reboot every time I switched between ACC and constant power. There are three possible solutions to this:</p>
+<p>Most SPDT toggle switches are <a href="https://www.analog.com/en/resources/glossary/break-before-make.html">break-before-make (BBM)</a> devices, which causes a temporary power gap while toggling. During testing, this &ldquo;feature&rdquo; reared its ugly head—the dashcam would momentarily lose power, causing it to reboot every time I switched between ACC and constant power. There are three possible solutions to this:</p>
 <ol>
 <li>
 <p><strong>Use a &ldquo;Make-Before-Break&rdquo; (MBB) SPDT Switch.</strong> Unlike BBM switches, an MBB switch briefly connects both power sources before disconnecting the previous one.<br>
@@ -153,7 +153,7 @@
 </li>
 <li>
 <p><strong>Add Capacitors to Bridge the Power Gap.</strong> Capacitors across the red wire and ground act as a temporary power source, keeping the dashcam alive while switching.<br>
-<strong>Why didn&rsquo;t this work?</strong> The sizing of these capacitors based on the dashcam&rsquo;s power draw of up to 1A at 12V means that I needed four cartoonishly large capacitors that took up far too much space.</p>
+<strong>Why didn&rsquo;t this work?</strong> The sizing of these capacitors based on the dashcam&rsquo;s power draw of up to 1A at 12V means that I needed four cartoonishly large capacitors that took up far too much space. I briefly took a look at supercapacitors but decided those were also too big. The dashcam normally would already have a supercapacitor installed, but perhaps mine was faulty.</p>
 </li>
 <li>
 <p><strong>Use a Diode to Automatically Bridge ACC Power.</strong> This approach uses the existing ACC line and a Schottky diode<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> to prevent backfeed: we feed ACC to the red line so that it&rsquo;ll only get ACC when the toggle is off but receive constant 12V when the toggle is on. The diode will prevent backfeed into the ACC fuse when the toggle is switched on.<br>

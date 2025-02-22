@@ -61,13 +61,13 @@ Since we've already covered that only the red wire will need to be switched betw
 
 ### The "Break-Before-Make" Problem
 
-Most SPDT toggle switches are [break-before-make (BBM)](https://www.analog.com/en/resources/glossary/break-before-make.html) devices, which causes a temporary power gap. During testing, this "feature" reared its ugly head—the dashcam would momentarily lose power, causing it to reboot every time I switched between ACC and constant power. There are three possible solutions to this:
+Most SPDT toggle switches are [break-before-make (BBM)](https://www.analog.com/en/resources/glossary/break-before-make.html) devices, which causes a temporary power gap while toggling. During testing, this "feature" reared its ugly head—the dashcam would momentarily lose power, causing it to reboot every time I switched between ACC and constant power. There are three possible solutions to this:
 
 1. **Use a "Make-Before-Break" (MBB) SPDT Switch.** Unlike BBM switches, an MBB switch briefly connects both power sources before disconnecting the previous one.  
    **Why didn't this work?** These are very hard to come by, if not impossible. Most spec sheets won't even list whether the switch is MBB or BBM.
 
 2. **Add Capacitors to Bridge the Power Gap.** Capacitors across the red wire and ground act as a temporary power source, keeping the dashcam alive while switching.  
-   **Why didn't this work?** The sizing of these capacitors based on the dashcam's power draw of up to 1A at 12V means that I needed four cartoonishly large capacitors that took up far too much space.
+   **Why didn't this work?** The sizing of these capacitors based on the dashcam's power draw of up to 1A at 12V means that I needed four cartoonishly large capacitors that took up far too much space. I briefly took a look at supercapacitors but decided those were also too big. The dashcam normally would already have a supercapacitor installed, but perhaps mine was faulty.
 
 3. **Use a Diode to Automatically Bridge ACC Power.** This approach uses the existing ACC line and a Schottky diode[^3] to prevent backfeed: we feed ACC to the red line so that it'll only get ACC when the toggle is off but receive constant 12V when the toggle is on. The diode will prevent backfeed into the ACC fuse when the toggle is switched on.  
    **Why didn't this work?** It worked. 😊
