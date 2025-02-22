@@ -1,15 +1,15 @@
 baseURL: https://davidchen.github.io/hugo/
 languageCode: en-us
-title: David Chen's Site
-theme: "PaperMod"
+title: David Chen
+theme: ["hugo-video", "PaperMod"]
 enableEmoji: true
 
 params:
   homeInfoParams:
-    Title: Hi there 👋
-    Content: Can be Info, links, about...
+    Title: Hi there, nice to meet you 👋
+    Content: I'm usually [coding](tags/coding/), [DIYing](tags/diy/), [traveling](tags/travel/), or hanging out with [my cats](tags/cats/).
 
-  socialIcons: # optional
+  socialIcons:
     - name: "Github"
       url: "<link>"
     - name: "LinkedIn"
