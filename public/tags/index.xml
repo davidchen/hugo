@@ -2,10 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on David Chen&#39;s Site</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>http://localhost:1313/hugo/tags/</link>
     <description>Recent content in Tags on David Chen&#39;s Site</description>
     <generator>Hugo -- 0.144.2</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automotive</title>
+      <link>http://localhost:1313/hugo/tags/automotive/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hugo/tags/automotive/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DIY</title>
+      <link>http://localhost:1313/hugo/tags/diy/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hugo/tags/diy/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
