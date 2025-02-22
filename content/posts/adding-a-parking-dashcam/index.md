@@ -3,15 +3,16 @@ title: "Adding a Parking Dashcam to a 2nd-Gen Mazda CX-5"
 summary: "How I spent far too long trying to squeeze every last drop of functionality from my parking dashcam"
 date: 2025-01-27
 tags: ["DIY", "automotive"]
+draft: true
 ---
 
 ## Initial Installation
 
-Earlier this month, I decided that I wanted a more sophisticated dashcam setup for my second-generation Mazda CX-5. Mostly, I wanted the parking mode feature, which is basically a cheaper version of Tesla's [Sentry Mode](https://www.notateslaapp.com/tesla-reference/1303/tesla-sentry-mode-what-it-is-how-to-use-it-and-battery-drain), to record any incidents that occur when the vehicle's engine is off, such as when parked on the street or in a parking garage. I opted for a [Rove R2-4K Dual](https://www.amazon.com/ROVE-R2-4K-DUAL-STARVIS-Included/dp/B0D6J5B98H)[^1], and the installation went pretty smoothly. I followed this video pretty closely for the install:
+Earlier this month, I decided that I wanted a more sophisticated dashcam setup for my second-generation Mazda CX-5. Mostly, I wanted the parking mode feature, which is basically a cheaper version of Tesla's [Sentry Mode](https://www.notateslaapp.com/tesla-reference/1303/tesla-sentry-mode-what-it-is-how-to-use-it-and-battery-drain), to record any incidents that occur when the vehicle's engine is off, such as when parked on the street or in a parking garage. I opted for a [Rove R2-4K Dual](https://www.amazon.com/ROVE-R2-4K-DUAL-STARVIS-Included/dp/B0D6J5B98H)[^1], and the installation went pretty smoothly. I followed this video pretty closely for the initial installation:
 
 {{< youtube VZDuZvfIwlo >}}
 
-[^1]: I won’t speak to the quality of this dashcam just yet since I haven't had the time to fully utilize all its features. I will mention, though, that there was a minor software annoyance that caused the rear dashcam to show up mirrored on the display. The playback of both cameras works well, and the Rove support team was pretty helpful in sending me a replacement. It did not solve the issue, but it's good to know their customer support is at least responsive and helpful.
+[^1]: I won't speak to the quality of this dashcam just yet, since I haven't had the time to fully utilize all its features. I will mention, though, that there was a minor software annoyance that caused the rear dashcam to show up mirrored on the display. The playback of both cameras works well, and the Rove support team was pretty helpful in sending me a replacement. It did not solve the issue, but it's good to know their customer support is at least responsive and helpful.
 
 At this point, you're pretty much good to go with a working dual dashcam setup. However, since this dashcam had the parking mode feature I was looking for, I needed to go a step further and install a hardwire kit.
 
@@ -21,14 +22,14 @@ The point of the hardwire kit is to "tap" directly into a vehicle's fuse box for
 
 ![Common Fuse Taps](common-fuse-taps.jpg)
 
-It turns out that the CX-5 uses low-profile mini fuses (second from the bottom), so we'd simply use the low-profile mini add-a-circuit from the kit. When installing the fuse tap, however, I realized that it didn’t fit properly. The tap would jut out because there were a couple of small plastic hooks protruding from the sides of each slot, which I assume are there to act as extra security for the existing fuse. This would cause the tap to fall out with even the slightest nudge. The solution here is simply to use the normal mini tap that also came with the kit (pictured last). Alternatively, one can be shortsighted and use a pair of pliers to twist off the pieces of plastic in the fuse box (please don't be like me).
+It turns out that the CX-5 uses low-profile mini fuses (second from the bottom), so we'd simply use the low-profile mini add-a-circuit from the kit. When installing the fuse tap, however, I realized that it didn't fit properly. The tap would jut out because there were a couple of small plastic hooks protruding from the sides of each slot, which I assume are there to act as extra security for the existing fuse. This would cause the tap to fall out with even the slightest nudge. The solution here is simply to use the normal mini tap that also came with the kit (pictured last). Alternatively, one can be shortsighted and use a pair of pliers to twist off the pieces of plastic in the fuse box (please don't be like me).
 
 ![Fuse Taps Installed](red-wire-fuse-taps.jpg)
 _Fuse taps installed. If your model is anything like mine: the yellow (ACC) is installed on Fuse 9 (15A) labeled F.OUTLET [Accessory sockets]. The red (constant) is installed on Fuse 16 (20A) labeled PLG [Power liftgate]. And of course, black is grounded to chassis with the bolt on the left._
 
 ## Parking Mode
 
-The [hardwire kit](https://www.amazon.com/dp/B0B7235VLX) has different voltage cutoffs, ranging from 11.8V to 12.4V. The idea here is that if the car battery gets below the set voltage, the kit will automatically cut the pwoer to the dashcam so that it doesn't consume any more power, and one would still be able to start the car. This detail is important to know for later. The kit has three colored wires, and this is how each of them should be wired to change the behavior of the dashcam:
+The [hardwire kit](https://www.amazon.com/dp/B0B7235VLX) has different voltage cutoffs, ranging from 11.8V to 12.4V. The idea here is that if the car battery gets below the set voltage, the kit will automatically cut the power to the dashcam so that it doesn't consume any more, and one would still be able to start the car. This detail is important to know for later. The kit has three colored wires, and this is how each of them should be wired to change the behavior of the dashcam:
 
 ![Hardwire Installation Guide](rove-hwk-instructions.jpg)
 
@@ -66,15 +67,15 @@ Since we've already covered that only the red wire will need to be switched betw
 Most SPDT toggle switches are [break-before-make (BBM)](https://www.analog.com/en/resources/glossary/break-before-make.html) devices, which causes a temporary power gap. During testing, this "feature" reared its ugly head—the dashcam would momentarily lose power, causing it to reboot every time I switched between ACC and constant power. There are three possible solutions to this:
 
 1. **Use a "Make-Before-Break" (MBB) SPDT Switch.** Unlike BBM switches, an MBB switch briefly connects both power sources before disconnecting the previous one.  
-   **Why didn’t this work?** These are very hard to come by, if not impossible. Most spec sheets won't even list whether the switch is MBB or BBM.
+   **Why didn't this work?** These are very hard to come by, if not impossible. Most spec sheets won't even list whether the switch is MBB or BBM.
 
 2. **Add Capacitors to Bridge the Power Gap.** Capacitors across the red wire and ground act as a temporary power source, keeping the dashcam alive while switching.  
-   **Why didn’t this work?** The sizing of these capacitors based on the dashcam's power draw of up to 1A at 12V means that I needed four cartoonishly large capacitors that took up far too much space.
+   **Why didn't this work?** The sizing of these capacitors based on the dashcam's power draw of up to 1A at 12V means that I needed four cartoonishly large capacitors that took up far too much space.
 
 3. **Use a Diode to Automatically Bridge ACC Power.** This approach uses the existing ACC line and a Schottky diode to prevent backfeed: we feed ACC to the red line so that it'll only get ACC when the toggle is off but receive constant 12V when the toggle is on. The diode will prevent backfeed into the ACC fuse when the toggle is switched on.  
-   **Why didn’t this work?** It worked.
+   **Why didn't this work?** It worked. 😊
 
-Now that we're bridging the power gap with ACC power, it turns out our SPDT toggle was overkill anyway. We don’t actually need the second power source from ACC since we're connecting it directly to the existing output of the switch. We could've gotten away with just an SPST. Here's a rudimentary wiring diagram of what we have so far:
+Now that we're bridging the power gap with ACC power, it turns out our SPDT toggle was overkill anyway. We don't actually need the second power source from ACC since we're connecting it directly to the existing output of the switch. We could've gotten away with just an SPST. Here's a rudimentary wiring diagram of what we have so far:
 
 ![Wiring Diagram Part 1](cx5-wiring-part-1.jpg)
 _Yes, I use Figma for wiring diagrams. No, I don't do autographs._
@@ -83,11 +84,11 @@ _Yes, I use Figma for wiring diagrams. No, I don't do autographs._
 
 At this point in the project, I was pretty proud of myself. I'd gotten all the electronics down, the dashcam was working flawlessly, and I was able to effortlessly toggle between the non-parking and parking modes without the camera rebooting. Now, I just had to put it to the test.
 
-After a long drive to have dinner with family for Chinese New Year's, I parked the car in the garage and turned on parking mode to see how long it would actually record. I'd set it to timelapse mode, and at 1 FPS, my conservative estimates put it in the range of recording for a couple of hours to about 6 hours' worth of footage, condensed into (at a minimum) a 4-minute video that I would be able to play back.
+After a long drive to have dinner with family for Chinese New Year, I parked the car in the garage and turned on parking mode to see how long it would actually record. I'd set it to timelapse mode, and at 1 FPS, my conservative estimates put it in the range of recording for a couple of hours to about 6 hours' worth of footage. This in theory should condense the recording into (at a minimum) a 4-minute video that I would be able to play back.
 
-Imagine my surprise when I came back the next day and there was only an 11-second clip, which equates to parking mode running for only 5.5 minutes. Actually, I wasn't surprised—mainly just disappointed. I had a sneaking suspicion that the factory-installed aging battery on my Mazda would not be up to the task of running a parking dashcam. Of course, I'd also already checked with a multimeter that it wasn't the hardwire kit that was faulty, since the battery was indeed at the cutoff point when the dashcam shut off.
+Imagine my surprise when I came back the next day and there was only an 11-second clip, which equates to parking mode running for only 5.5 minutes. Actually, I wasn't surprised---mainly just disappointed. I had a sneaking suspicion that the factory-installed aging battery on my Mazda would not be up to the task of running a parking dashcam. Of course, I'd also already checked with a multimeter that it wasn't the hardwire kit that was faulty, since the battery was indeed at the cutoff point when the dashcam shut off.
 
-This is the part where I should've stopped shelling out money for more electrical equipment and the like, but unfortunately, I didn’t.
+This is the part where I should've stopped shelling out money for more electrical equipment and the like, but unfortunately, I didn't.
 
 To solve this issue, I purchased an external battery pack ([BlackVue B-112](https://www.amazon.com/dp/B01HFRH34Q?ref=ppx_yo2ov_dt_b_fed_asin_title)) specifically made for dashcams with parking modes so that it now becomes the sole source of power when the engine is off, instead of the vehicle's actual battery. I also decided to purchase a cheap voltage meter I could hook up to check how much voltage the dashcam was pulling at any given time, just to provide extra transparency about battery behavior. The wiring diagram now looks like this:
 
@@ -100,3 +101,6 @@ Now all that's left to do is wire management and 3D printing a nice little conta
 
 ![3D Printed Case](3d-printed-case.jpg)  
 _Switch downward to activate parking mode. Switch upward to return to non-parking mode. The direction was somewhat arbitrary; I chose downward for parking mode since there's less risk of an item dropping onto the toggle and accidentally shutting off power mode when it was meant to be on. The opposite is less of a concern (turning parking mode on accidentally)._
+
+![Complete Parking Mode](complete-parking-mode.jpg)  
+_todo add picture of the parking mode activated and maybe a description of how long it lasts now with the B112_
